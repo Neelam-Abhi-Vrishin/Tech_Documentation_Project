@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <link rel='stylesheet' href='styles.css' />
+    <title> Technical Documentation of Java</title>
+  </head>
+  <body>
+    <nav id="navbar">
+      <header>Java Documentation</header>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li><a class="nav-link" href="#The_Kinds_of_Types_and_Values">The Kinds of Types and Values</a></li>
+        <li><a class="nav-link" href="#Classes">Classes</a></li>
+        <li><a class="nav-link" href="#Interfaces">Interfaces</a></li>
+        <li><a class="nav-link" href="#Packages">Packages</a></li>
+        <li><a class="nav-link" href="#References">References</a></li>
+      </ul>
+    </nav>
+    <main id='main-doc'>
+      
+      <section class='main-section' id='Introduction'>
+        <header>
+          <h1>Introduction</h1>
+        </header>
+          <p>THE Java® programming language is a general-purpose, concurrent, classbased, object-oriented language. It is designed to be simple enough that many programmers can achieve fluency in the language. The Java programming language is related to C and C++ but is organized rather differently, with a number of aspects of C and C++ omitted and a few ideas from other languages included. It is intended to be a production language, not a research language, and so, as C. A. R. Hoare suggested in his classic paper on language design, the design has avoided including new and untested features.
+          </p>
+          <p>
+            The Java programming language is strongly and statically typed. This specification
+clearly distinguishes between the compile-time errors that can and must be detected
+at compile time, and those that occur at run time. Compile time normally consists
+of translating programs into a machine-independent byte code representation.
+Run-time activities include loading and linking of the classes needed to execute
+a program, optional machine code generation and dynamic optimization of the
+program, and actual program execution.
+          </p>
+          <pre class='code'><code>class Test
+{
+    public static void main(String []args)
+    {
+        System.out.println("My First Java Program.");
+    }
+};</code></pre>
+      </section>
+      
+      <section class='main-section' id='The_Kinds_of_Types_and_Values'>
+        <header>
+          <h1>The Kinds of Types and Values</h1>
+        </header>
+          <p> There are two kinds of types in the Java programming language: primitive types (§4.2) and reference types (§4.3). There are, correspondingly, two kinds of data values that can be stored in variables, passed as arguments, returned by methods, and operated on: primitive values (§4.2) and reference values (§4.3)</p>
+          <ul>
+            <li>Primitive Type</li>
+            <li>Reference Type</li>
+          </ul>
+
+          <p>
+            Primitive data types directly house simple values, providing the building blocks for Java's data-handling capabilities. Whether you're dealing with numbers, characters, or logical conditions, these types are the bedrock of basic value representation in Java. 
+Reference data types, also referred to as reference types, serve as containers for memory addresses or references to objects rather than holding the actual object data. 
+          </p>
+
+          <pre class='code'>
+            <code>
+// Declaring float variable
+float simpleInterest; 
+// Declaring and initializing integer variable
+int time = 10, speed = 20; 
+// Declaring and initializing character variable
+char var = 'h'; 
+            </code>
+          </pre>
+      </section>
+      
+      <section class='main-section' id='Classes'>
+        <header>
+          <h1>Classes</h1>
+        </header>
+          <p>
+            class declarations define new reference types and describe how they are implemented (§8.1). A top level class is a class that is not a nested class. A nested class is any class whose declaration occurs within the body of another class or interface.
+          </p>
+
+          <p>
+            A named class may be declared abstract (§8.1.1.1) and must be declared abstract if it is incompletely implemented; such a class cannot be instantiated, but can be extended by subclasses. A class may be declared final (§8.1.1.2), in which case it cannot have subclasses. If a class is declared public, then it can be referred to from other packages. Each class except Object is an extension of (that is, a subclass of) a single existing class (§8.1.4) and may implement interfaces (§8.1.5). Classes may be generic (§8.1.2), that is, they may declare type variables whose bindings may differ among different instances of the class.
+          </p>
+          <pre class='code'>
+            <code>
+public class Main {
+  int x = 5;
+
+  public static void main(String[] args) {
+    Main myObj1 = new Main();  // Object 1
+    Main myObj2 = new Main();  // Object 2
+    System.out.println(myObj1.x);
+    System.out.println(myObj2.x);
+  }
+}
+            </code>
+          </pre>
+          <header>Types of classes</header>
+          <ul>
+            <li>Final Class</li>
+            <li>Static Class</li>
+            <li>Abstract Class</li>
+            <li>Concrete Class</li>
+          </ul>
+      </section>
+      
+      <section class='main-section' id='Interfaces'>
+        <header>
+          <h1>Interfaces</h1>
+        </header>
+          <p>
+            An interface declaration introduces a new reference type whose members are classes, interfaces, constants, and methods. This type has no instance variables, and typically declares one or more abstract methods; otherwise unrelated classes can implement the interface by providing implementations for its abstract methods. Interfaces may not be directly instantiated. A nested interface is any interface whose declaration occurs within the body of another class or interface. A top level interface is an interface that is not a nested interface
+          </p>
+          <pre class='code'>
+            <code>
+interface Polygon {
+  void getArea(int length, int breadth);
+}
+
+// implement the Polygon interface
+class Rectangle implements Polygon {
+
+  // implementation of abstract method
+  public void getArea(int length, int breadth) {
+    System.out.println("The area of the rectangle is " + (length * breadth));
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    Rectangle r1 = new Rectangle();
+    r1.getArea(5, 6);
+  }
+}
+            </code>
+          </pre>
+          <p>
+            The interface inherits, from the interfaces it extends, all members of those interfaces, except for fields, classes, and interfaces that it hides; abstract or default methods that it overrides (§9.4.1); and static methods. Fields, methods, and member types of an interface type may have the same name, since they are used in different contexts and are disambiguated by different lookup procedures (§6.5)
+          </p>
+      </section>
+      
+      <section class='main-section' id='Packages'>
+        <header>
+          <h1>Packages</h1>
+        </header>
+          <p>
+Programs are organized as sets of packages. Each package has its own set of names for types, which helps to prevent name conflicts. A top level type is accessible (§6.6) outside the package that declares it only if the type is declared public. The naming structure for packages is hierarchical (§7.1). The members of a package are class and interface types (§7.6), which are declared in compilation units of the package, and subpackages, which may contain compilation units and subpackages of their own. A package can be stored in a file system or in a database (§7.2). Packages that are stored in a file system may have certain constraints on the organization of their compilation units to allow a simple implementation to find classes easily
+          </p>
+          <pre class='code'>
+            <code>
+package mypack;  
+public class Simple{  
+ public static void main(String args[]){  
+    System.out.println("Welcome to package");  
+ }  
+}  
+            </code>
+          </pre>
+          <p>
+            A package declaration in a compilation unit specifies the name (§6.2) of the package to which the compilation unit belongs.The package name mentioned in a package declaration must be the fully qualified name of the package (§6.7). The scope and shadowing of a package declaration is specified in §6.3 and §6.4. The rules for annotation modifiers on a package declaration are specified in §9.7.4 and §9.7.5.
+          </p>
+      </section>
+      
+      <section class='main-section' id='References'>
+      <header>
+        <h1>References</h1>
+      </header>
+      <p>All the above information has been extracted from <a class='ref' href='https://docs.oracle.com/javase/specs/jls/se8/jls8.pdf' target='_blank'>Oracle</a></p>
+      </section>
+    </main> 
+  </body>
+</html>
